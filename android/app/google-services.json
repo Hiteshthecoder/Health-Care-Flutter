@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "691871932338",
+    "project_id": "dqcare-2b053",
+    "storage_bucket": "dqcare-2b053.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691871932338:android:3b562fda7ff12a1f1d0eab",
+        "android_client_info": {
+          "package_name": "com.healthdetails.doctor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx4t84rokSJtzg3_9H_5GtQtpz3ywV3lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691871932338:android:06e54659c4a7c23a1d0eab",
+        "android_client_info": {
+          "package_name": "com.healthdetails.patient"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx4t84rokSJtzg3_9H_5GtQtpz3ywV3lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+storePassword=HealthDetailsPatient@123!
+keyPassword=HealthDetailsPatient@123!
+keyAlias=upload
+storeFile=D:/important_files/keystores/healthdetailspatient/upload-keystore.jks
+#storeFile=/Volumes/LNPC/flutter_projects/Keystores/celebsquiz/upload-keystore.jks

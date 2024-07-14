@@ -1,0 +1,14 @@
+pass HealthDetailsPatient@123!
+
+What is your first and last name?
+  [Unknown]:  Krunal
+What is the name of your organizational unit?
+  [Unknown]:  Ramteke
+What is the name of your organization?
+  [Unknown]:  Good4health lifecare technology Pvt Ltd
+What is the name of your City or Locality?
+  [Unknown]:  Vapi
+What is the name of your State or Province?
+  [Unknown]:  Gujarat
+What is the two-letter country code for this unit?
+  [Unknown]:  +91
