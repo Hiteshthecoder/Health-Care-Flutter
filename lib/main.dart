@@ -1,11 +1,9 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_mvc/app/shared/controllers/AuthState.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,6 +21,7 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -58,7 +57,7 @@ class MyApp extends StatelessWidget {
           defaultTransition: Transition.fadeIn,
           title: "${Config.appName}",
           theme: ThemeData(
-            fontFamily: GoogleFonts.getFont("Roboto").fontFamily,
+              fontFamily: GoogleFonts.getFont("Roboto").fontFamily,
               datePickerTheme: DatePickerThemeData(
                   surfaceTintColor: Colors.white,
                   backgroundColor: Colors.white),
@@ -79,7 +78,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
           initialBinding: GlobalBindings(),
-          initialRoute: "/",
+          initialRoute: AuthState().user != null ? "/home" : "/login",
           getPages: routes,
         );
       },

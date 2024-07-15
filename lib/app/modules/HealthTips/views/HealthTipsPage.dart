@@ -93,7 +93,7 @@ class HealthTipsPage extends StatelessWidget {
                                                       controller.health[index];
                                                   return Padding(
                                                     padding: const EdgeInsets
-                                                            .symmetric(
+                                                        .symmetric(
                                                         horizontal: 2,
                                                         vertical: 8),
                                                     child: Column(

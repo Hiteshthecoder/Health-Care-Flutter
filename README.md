@@ -1,12 +1,10 @@
-# Flutter MVC Starter
+# 15/7/2024
 
-A starter project to begin any new flutter project.
-It has the ```GetX``` package and some more custom made helpers and packages to help the dev to build their apps with ease.
+## Tasks Done
+(1) migrated unsupported methods and properties to latest flutter version.
+(2) solved the login screen validation error
+(3) fix the error of sign in where user has to sign in every time when app opens.
 
-It uses the ```MVC``` pattern which is one of the best pattern among developers.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-Just download it and start working on your project.
+## Current Issues
+(1) Health Tips article images are not fetched even though the request format is completely correct - the response code of 404 is returned from the server.
+(2) server is sending 404 error status code for every image request.

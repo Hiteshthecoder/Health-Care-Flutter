@@ -22,7 +22,7 @@ class AuthState extends AppController {
   AuthService _authService = AuthService.instance;
 
   /// Observables
-  var _user = UserModel().obs;
+  Rx<UserModel> _user = UserModel().obs;
 
   /// Getters
   UserModel get user => _user.value;
@@ -90,6 +90,7 @@ class AuthState extends AppController {
 // bool get loggedIn => check().whenComplete(() => true);
 
   Future<void> updateUserDeviceToken() async {
-    await _loginService.updateUserDeviceToken(body: {"fcm_token": fcmController.deviceToken});
+    await _loginService
+        .updateUserDeviceToken(body: {"fcm_token": fcmController.deviceToken});
   }
 }

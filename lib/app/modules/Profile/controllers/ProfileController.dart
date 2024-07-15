@@ -95,7 +95,7 @@ class ProfileController extends AppController {
   }
 
   Future<void> profileSetup() async {
-    if (!formKey.currentState!.validate()) {
+    if (formKey.currentState != null && !formKey.currentState!.validate()) {
       return;
     }
     if (pincodeInput.text.trim().isNotEmpty) {
