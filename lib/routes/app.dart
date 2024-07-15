@@ -1,5 +1,6 @@
 import 'package:flutter_mvc/app/Rewards/views/RewardsPage.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/aabha1.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_adhar_card.dart';
 import 'package:flutter_mvc/app/modules/ActivateAccount/views/ActivateMemberPage.dart';
 import 'package:flutter_mvc/app/modules/Auth/views/OTPVerify.dart';
 import 'package:flutter_mvc/app/modules/ChatBot/views/ChatBotPage.dart';
@@ -224,4 +225,7 @@ List<GetPage> routes = [
   /// Aabha1 Page
   /// ===============================
   GetPage(name: '/aabha1', page: () => aabha1()),
+
+  GetPage(name: '/abha-adhar-card', page: () => AbhaAdharCardPage()),
+
 ];

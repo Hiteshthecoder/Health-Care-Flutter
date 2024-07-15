@@ -15,8 +15,8 @@ abstract class HealthTipsIndexService {
 
     return Get.find<HealthTipsIndexService>();
   }
-  Future<ApiResponse> getHealthTipsData({int? page}) ;
+  Future<ApiResponse> getHealthTipsData({int? page});
 
-  Future<ApiResponse> getHealthTipsShow({required int healthTipId}) ;
+  Future<ApiResponse> getHealthTipsShow({required int healthTipId});
 
 }

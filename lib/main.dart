@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
           initialBinding: GlobalBindings(),
-          initialRoute: AuthState().user != null ? "/home" : "/login",
+          initialRoute: AuthState().user != null ? "/dashboard" : "/login",
           getPages: routes,
         );
       },
