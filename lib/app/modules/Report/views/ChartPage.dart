@@ -114,7 +114,7 @@ class ChartPage extends StatelessWidget {
                         style: Theme
                             .of(context)
                             .textTheme
-                            .bodyText1
+                            .bodySmall
                             ?.copyWith(fontSize: 18, fontWeight: FontWeight.w600, color: kcDarkAlt),
                         textAlign: TextAlign.center,
                       ),

@@ -18,7 +18,7 @@ class NoDataWidget extends StatelessWidget {
         // if (retry) action!();
       },
       child: Container(
-       height: screen.width * 1.4,
+        height: screen.width * 1.4,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -32,7 +32,7 @@ class NoDataWidget extends StatelessWidget {
             SizedBox(height: spacer),
             Text(
               message,
-              style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 18),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 18),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: spacer),

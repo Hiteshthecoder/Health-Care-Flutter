@@ -6,11 +6,10 @@ import 'dart:convert';
 
 import 'package:flutter_mvc/app/models/UserModel.dart';
 
-List<RespectModel> respectModelFromJson(String str) => List<RespectModel>.from(
-    json.decode(str).map((x) => RespectModel.fromJson(x)));
+List<RespectModel> respectModelFromJson(String str) =>
+    List<RespectModel>.from(json.decode(str).map((x) => RespectModel.fromJson(x)));
 
-String respectModelToJson(List<RespectModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String respectModelToJson(List<RespectModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class RespectModel {
   RespectModel({
@@ -33,12 +32,8 @@ class RespectModel {
         id: json["id"] == null ? null : json["id"],
         userId: json["user_id"] == null ? null : json["user_id"].toString(),
         postId: json["post_id"] == null ? null : json["post_id"].toString(),
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.parse(json["updated_at"]),
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
         user: json["user"] == null ? null : UserModel?.fromJson(json["user"]),
       );
 

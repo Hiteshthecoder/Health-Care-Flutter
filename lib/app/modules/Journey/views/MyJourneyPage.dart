@@ -66,8 +66,7 @@ class MyJourneyPage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   NoDataWidget(
-                                    message:
-                                        "To create journey, you need to upload documents first",
+                                    message: "To create journey, you need to upload documents first",
                                     icon: SvgPicture.asset(
                                       'assets/icons/notebook.svg',
                                       width: spacer8,
@@ -80,18 +79,15 @@ class MyJourneyPage extends StatelessWidget {
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(5)),
+                                            borderRadius: BorderRadius.all(Radius.circular(5)),
                                             color: kcPrimary,
                                           ),
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 10),
+                                          padding: EdgeInsets.symmetric(vertical: 10),
                                           width: screen.width * 0.52,
                                           height: screen.height * 0.05,
                                           child: Text(
                                             "Start Uploading",
-                                            style: TextStyl.bodySm?.copyWith(
-                                                fontSize: 15, color: kcWhite),
+                                            style: TextStyl.bodySm?.copyWith(fontSize: 15, color: kcWhite),
                                             textAlign: TextAlign.center,
                                           ),
                                         ),
@@ -103,8 +99,7 @@ class MyJourneyPage extends StatelessWidget {
                                     height: 15,
                                   ),
                                   Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
@@ -119,11 +114,8 @@ class MyJourneyPage extends StatelessWidget {
                                         "Have a look",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .bodyText1
-                                            ?.copyWith(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w600,
-                                                color: kcDarkAlt),
+                                            .bodySmall
+                                            ?.copyWith(fontSize: 18, fontWeight: FontWeight.w600, color: kcDarkAlt),
                                         textAlign: TextAlign.center,
                                       ),
                                     ],
@@ -133,26 +125,20 @@ class MyJourneyPage extends StatelessWidget {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Get.toNamed('/blogsHealthTips',
-                                          parameters: {"healthTip_id": "11"});
+                                      Get.toNamed('/blogsHealthTips', parameters: {"healthTip_id": "11"});
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)),
+                                        borderRadius: BorderRadius.all(Radius.circular(5)),
                                         color: kcOffWhite,
                                       ),
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10),
+                                      padding: EdgeInsets.symmetric(vertical: 10),
                                       width: screen.width * 0.68,
                                       height: screen.height * 0.05,
                                       child: Text(
-                                        "How my journey looks like"
-                                            .toUpperCase(),
-                                        style: TextStyl.bodySm?.copyWith(
-                                            fontSize: 14,
-                                            color: kcBlack,
-                                            fontWeight: FontWeight.w600),
+                                        "How my journey looks like".toUpperCase(),
+                                        style: TextStyl.bodySm
+                                            ?.copyWith(fontSize: 14, color: kcBlack, fontWeight: FontWeight.w600),
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
@@ -161,18 +147,14 @@ class MyJourneyPage extends StatelessWidget {
                                     height: 5,
                                   ),
                                   Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 13, vertical: 3),
+                                    padding: EdgeInsets.symmetric(horizontal: 13, vertical: 3),
                                     color: kcWarning.withOpacity(0.2),
                                     width: screen.width,
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        SvgPicture.asset(
-                                            'assets/icons/info.svg'),
+                                        SvgPicture.asset('assets/icons/info.svg'),
                                         SizedBox(
                                           width: 10,
                                         ),
@@ -193,8 +175,7 @@ class MyJourneyPage extends StatelessWidget {
                                 ],
                               ),
                             )
-                          : controller.journeyData.id != null &&
-                                  controller.journeyData.journey == null
+                          : controller.journeyData.id != null && controller.journeyData.journey == null
                               ? Center(
                                   child: Column(
                                     children: [
@@ -204,31 +185,25 @@ class MyJourneyPage extends StatelessWidget {
                                           width: spacer8,
                                           color: kcDarkAlt,
                                         ),
-                                        message:
-                                            "Your journey is under creation",
+                                        message: "Your journey is under creation",
                                       ),
                                       Spacer(),
                                       Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 13, vertical: 3),
+                                        padding: EdgeInsets.symmetric(horizontal: 13, vertical: 3),
                                         color: kcWarning.withOpacity(0.2),
                                         width: screen.width,
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            SvgPicture.asset(
-                                                'assets/icons/info.svg'),
+                                            SvgPicture.asset('assets/icons/info.svg'),
                                             SizedBox(
                                               width: 10,
                                             ),
                                             Flexible(
                                               child: Text(
                                                 'Journey is created according to documents provided. For more accurate information kindly refer to original file.',
-                                                style:
-                                                    TextStyl.bodySm?.copyWith(
+                                                style: TextStyl.bodySm?.copyWith(
                                                   fontSize: 13,
                                                 ),
                                               ),
@@ -243,14 +218,11 @@ class MyJourneyPage extends StatelessWidget {
                                   ),
                                 )
                               : auth.user.subscription!.isTrial() ||
-                                      auth.user.subscription!.toDate!
-                                          .isBefore(DateTime.now())
+                                      auth.user.subscription!.toDate!.isBefore(DateTime.now())
                                   ? Blur(
                                       overlay: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Icon(
                                             Icons.lock_outline,
@@ -262,18 +234,15 @@ class MyJourneyPage extends StatelessWidget {
                                           ),
                                           Text(
                                             "You don't have a subscription",
-                                            style: TextStyl.bodySm?.copyWith(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w600,
-                                                color: kcPrimary),
+                                            style: TextStyl.bodySm
+                                                ?.copyWith(fontSize: 20, fontWeight: FontWeight.w600, color: kcPrimary),
                                           ),
                                           Text(
                                             "Subscribing to a plan unlocks this report",
                                             style: TextStyl.bodySm?.copyWith(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w500,
-                                                color:
-                                                    kcDarkAlt.withOpacity(0.6)),
+                                                color: kcDarkAlt.withOpacity(0.6)),
                                           ),
                                           SizedBox(
                                             height: 8,
@@ -288,25 +257,16 @@ class MyJourneyPage extends StatelessWidget {
                                                   offset: Offset(0, child),
                                                   child: IconButton(
                                                     icon: Container(
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 35,
-                                                              vertical: 10),
+                                                      padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
                                                       decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
+                                                        borderRadius: BorderRadius.circular(5),
                                                         //  border: Border.all(width: 1,color: kcPrimary),
                                                         color: kcGreen,
                                                       ),
                                                       child: Text(
                                                         'Take Subscription',
                                                         style: TextStyl.bodySm
-                                                            ?.copyWith(
-                                                                color: kcWhite,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
+                                                            ?.copyWith(color: kcWhite, fontWeight: FontWeight.w600),
                                                       ),
                                                     ),
                                                     onPressed: () {
@@ -316,8 +276,7 @@ class MyJourneyPage extends StatelessWidget {
                                                 ),
                                               );
                                             },
-                                            duration: const Duration(
-                                                milliseconds: 500),
+                                            duration: const Duration(milliseconds: 500),
                                             curve: Curves.easeInCubic,
                                           ),
                                         ],
@@ -327,26 +286,20 @@ class MyJourneyPage extends StatelessWidget {
                                       colorOpacity: 0.5,
                                       child: SingleChildScrollView(
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
                                             Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 13, vertical: 3),
+                                              padding: EdgeInsets.symmetric(horizontal: 13, vertical: 3),
                                               color: kcWarning.withOpacity(0.2),
                                               width: screen.width,
                                               child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
+                                                crossAxisAlignment: CrossAxisAlignment.end,
+                                                mainAxisAlignment: MainAxisAlignment.end,
                                                 children: [
                                                   Text(
                                                     'Last Update - ${Jiffy(controller.journeyData.updatedAt).format('dd MMM, yyyy')}',
-                                                    style: TextStyl.bodySm
-                                                        ?.copyWith(
+                                                    style: TextStyl.bodySm?.copyWith(
                                                       fontSize: 12,
                                                     ),
                                                   ),
@@ -357,46 +310,34 @@ class MyJourneyPage extends StatelessWidget {
                                               height: 15,
                                             ),
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: spacer4,
-                                                      vertical: 0),
+                                              padding: const EdgeInsets.symmetric(horizontal: spacer4, vertical: 0),
                                               child: Text(
                                                 'Journey',
-                                                style: TextStyl.title
-                                                    ?.copyWith(fontSize: 16),
+                                                style: TextStyl.title?.copyWith(fontSize: 16),
                                               ),
                                             ),
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: spacer2),
-                                                child: HtmlWidget(controller
-                                                    .journeyData.journey)),
+                                                padding: const EdgeInsets.symmetric(horizontal: spacer2),
+                                                child: HtmlWidget(controller.journeyData.journey)),
                                             SizedBox(
                                               height: 5,
                                             ),
                                             Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 13, vertical: 3),
+                                              padding: EdgeInsets.symmetric(horizontal: 13, vertical: 3),
                                               color: kcWarning.withOpacity(0.2),
                                               width: screen.width,
                                               child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
-                                                  SvgPicture.asset(
-                                                      'assets/icons/info.svg'),
+                                                  SvgPicture.asset('assets/icons/info.svg'),
                                                   SizedBox(
                                                     width: 10,
                                                   ),
                                                   Flexible(
                                                     child: Text(
                                                       'Journey is created according to documents provided. For more accurate information kindly refer to original file.',
-                                                      style: TextStyl.bodySm
-                                                          ?.copyWith(
+                                                      style: TextStyl.bodySm?.copyWith(
                                                         fontSize: 13,
                                                       ),
                                                     ),
@@ -413,51 +354,39 @@ class MyJourneyPage extends StatelessWidget {
                                     )
                                   : SingleChildScrollView(
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 13, vertical: 3),
+                                            padding: EdgeInsets.symmetric(horizontal: 13, vertical: 3),
                                             color: kcWarning.withOpacity(0.2),
                                             width: screen.width,
                                             child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              mainAxisAlignment: MainAxisAlignment.end,
                                               children: [
                                                 Text(
                                                   'Last Update - ${Jiffy(controller.journeyData.updatedAt).format('dd MMM, yyyy')}',
-                                                  style:
-                                                      TextStyl.bodySm?.copyWith(
+                                                  style: TextStyl.bodySm?.copyWith(
                                                     fontSize: 12,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          if (controller.journeyData.remark !=
-                                              null)
+                                          if (controller.journeyData.remark != null)
                                             SizedBox(
                                               height: 15,
                                             ),
-                                          if (controller.journeyData.remark !=
-                                              null)
+                                          if (controller.journeyData.remark != null)
                                             Column(
                                               children: [
                                                 Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                      vertical: 15),
+                                                  padding: EdgeInsets.symmetric(vertical: 15),
                                                   decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      topRight:
-                                                          Radius.circular(13),
-                                                      topLeft:
-                                                          Radius.circular(13),
+                                                    borderRadius: BorderRadius.only(
+                                                      topRight: Radius.circular(13),
+                                                      topLeft: Radius.circular(13),
                                                     ),
                                                     color: kcBlue,
                                                   ),
@@ -465,15 +394,10 @@ class MyJourneyPage extends StatelessWidget {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        padding:
-                                                            EdgeInsets.all(8),
-                                                        margin: EdgeInsets
-                                                            .symmetric(
-                                                                horizontal: 10),
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
+                                                        padding: EdgeInsets.all(8),
+                                                        margin: EdgeInsets.symmetric(horizontal: 10),
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
                                                           color: kcWhite,
                                                         ),
                                                         child: Image.asset(
@@ -486,38 +410,22 @@ class MyJourneyPage extends StatelessWidget {
                                                         width: 12,
                                                       ),
                                                       Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        mainAxisAlignment: MainAxisAlignment.start,
                                                         children: [
                                                           Text(
                                                             'DQ Care Support',
-                                                            style: TextStyl
-                                                                .bodySm
-                                                                ?.copyWith(
-                                                                    fontSize:
-                                                                        16,
-                                                                    color:
-                                                                        kcWhite,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
+                                                            style: TextStyl.bodySm?.copyWith(
+                                                                fontSize: 16,
+                                                                color: kcWhite,
+                                                                fontWeight: FontWeight.w600),
                                                           ),
                                                           Text(
                                                             'Sent you a message',
-                                                            style: TextStyl
-                                                                .bodySm
-                                                                ?.copyWith(
-                                                                    fontSize:
-                                                                        11,
-                                                                    color:
-                                                                        kcWhite,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
+                                                            style: TextStyl.bodySm?.copyWith(
+                                                                fontSize: 11,
+                                                                color: kcWhite,
+                                                                fontWeight: FontWeight.w600),
                                                           ),
                                                         ],
                                                       )
@@ -525,24 +433,17 @@ class MyJourneyPage extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 13,
-                                                      vertical: 6),
+                                                  padding: EdgeInsets.symmetric(horizontal: 13, vertical: 6),
                                                   decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                        bottomRight:
-                                                            Radius.circular(13),
-                                                        bottomLeft:
-                                                            Radius.circular(13),
+                                                      borderRadius: BorderRadius.only(
+                                                        bottomRight: Radius.circular(13),
+                                                        bottomLeft: Radius.circular(13),
                                                       ),
                                                       boxShadow: [
                                                         BoxShadow(
-                                                          color: kcDarkAlt
-                                                              .withOpacity(0.5),
+                                                          color: kcDarkAlt.withOpacity(0.5),
                                                           blurRadius: 15.0,
-                                                          blurStyle:
-                                                              BlurStyle.outer,
+                                                          blurStyle: BlurStyle.outer,
                                                         )
                                                       ]
                                                       // border: Border(
@@ -551,23 +452,16 @@ class MyJourneyPage extends StatelessWidget {
                                                       ),
                                                   width: screen.width,
                                                   child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    mainAxisAlignment: MainAxisAlignment.start,
                                                     children: [
                                                       SizedBox(
                                                         height: 10,
                                                       ),
                                                       Text(
                                                         "${controller.journeyData.remark}",
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style: TextStyl.body
-                                                            ?.copyWith(
-                                                                fontSize: 14,
-                                                                color: kcBlack),
+                                                        textAlign: TextAlign.start,
+                                                        style: TextStyl.body?.copyWith(fontSize: 14, color: kcBlack),
                                                       ),
                                                       SizedBox(
                                                         height: 10,
@@ -577,8 +471,7 @@ class MyJourneyPage extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                          if (controller.journeyData.remark !=
-                                              null)
+                                          if (controller.journeyData.remark != null)
                                             SizedBox(
                                               height: 10,
                                             ),
@@ -586,45 +479,34 @@ class MyJourneyPage extends StatelessWidget {
                                             height: 15,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: spacer4,
-                                                vertical: 0),
+                                            padding: const EdgeInsets.symmetric(horizontal: spacer4, vertical: 0),
                                             child: Text(
                                               'Journey',
-                                              style: TextStyl.title
-                                                  ?.copyWith(fontSize: 16),
+                                              style: TextStyl.title?.copyWith(fontSize: 16),
                                             ),
                                           ),
                                           Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: spacer2),
-                                              child: HtmlWidget(controller
-                                                  .journeyData.journey)),
+                                              padding: const EdgeInsets.symmetric(horizontal: spacer2),
+                                              child: HtmlWidget(controller.journeyData.journey)),
                                           SizedBox(
                                             height: 5,
                                           ),
                                           Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 13, vertical: 3),
+                                            padding: EdgeInsets.symmetric(horizontal: 13, vertical: 3),
                                             color: kcWarning.withOpacity(0.2),
                                             width: screen.width,
                                             child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                SvgPicture.asset(
-                                                    'assets/icons/info.svg'),
+                                                SvgPicture.asset('assets/icons/info.svg'),
                                                 SizedBox(
                                                   width: 10,
                                                 ),
                                                 Flexible(
                                                   child: Text(
                                                     'Journey is created according to documents provided. For more accurate information kindly refer to original file.',
-                                                    style: TextStyl.bodySm
-                                                        ?.copyWith(
+                                                    style: TextStyl.bodySm?.copyWith(
                                                       fontSize: 13,
                                                     ),
                                                   ),

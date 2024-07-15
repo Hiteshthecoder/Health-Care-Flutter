@@ -21,7 +21,7 @@ class LoadingIconWidget extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               width: screen.width * 0.5,
               decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(color: Colors.black.withOpacity(0.15), blurRadius: 5),

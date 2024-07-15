@@ -68,50 +68,50 @@ IconThemeData _iconTheme = IconThemeData(
 // Light Text Theme
 //======================================
 TextTheme _textThemeLight = TextTheme(
-  headline1: TextStyle(
+  headlineSmall: TextStyle(
     fontSize: 35,
     fontFamily: Config.headingFontFamily,
     fontWeight: FontWeight.w600,
     color: kcDarker,
   ),
-  headline2: TextStyle(
+  headlineMedium: TextStyle(
     fontSize: 30,
     fontFamily: Config.headingFontFamily,
     fontWeight: FontWeight.w600,
     color: kcDarker,
   ),
-  headline3: TextStyle(
+  headlineLarge: TextStyle(
     fontSize: 25,
     fontFamily: Config.headingFontFamily,
     fontWeight: FontWeight.w600,
     color: kcDarker,
   ),
-  headline4: TextStyle(
+  titleSmall: TextStyle(
     fontFamily: Config.headingFontFamily,
     fontWeight: FontWeight.w600,
     color: kcWhite,
   ),
-  headline5: TextStyle(
+  titleMedium: TextStyle(
     fontFamily: Config.headingFontFamily,
     fontWeight: FontWeight.w600,
     color: kcWhite,
   ),
-  headline6: TextStyle(
+  titleLarge: TextStyle(
     fontFamily: Config.headingFontFamily,
     fontWeight: FontWeight.w600,
     color: kcWhite,
   ),
-  bodyText1: TextStyle(
+  bodySmall: TextStyle(
     fontSize: 16.0,
     fontFamily: Config.bodyFontFamily,
     color: kcDarker,
   ),
-  bodyText2: TextStyle(
+  bodyMedium: TextStyle(
     fontSize: 14.0,
     fontFamily: Config.bodyFontFamily,
     color: kcDarker,
   ),
-  button: TextStyle(
+  labelMedium: TextStyle(
     fontSize: 14.0,
     fontWeight: FontWeight.w600,
     fontFamily: Config.bodyFontFamily,
@@ -127,7 +127,7 @@ final ThemeData lightThemeData = ThemeData(
   iconTheme: _iconTheme,
   textTheme: _textThemeLight,
   scaffoldBackgroundColor: kcWhite,
-  backgroundColor: kcWhite,
+  // backgroundColor: kcWhite,
   primaryColor: kcPrimary,
   primaryColorLight: kcPrimaryLight,
   primarySwatch: generateMaterialColor(kcPrimary),
@@ -146,19 +146,19 @@ final ThemeData lightThemeData = ThemeData(
     backgroundColor: kcWhite,
     iconTheme: IconThemeData(color: kcBlack),
     toolbarTextStyle: TextTheme(
-      headline6: TextStyle(
+      headlineLarge: TextStyle(
         color: kcOffWhite,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-    ).headline6,
+    ).headlineLarge,
     titleTextStyle: TextTheme(
-      headline6: TextStyle(
+      headlineLarge: TextStyle(
         color: kcBlack,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-    ).headline6,
+    ).headlineLarge,
   ),
   inputDecorationTheme: _inputTheme(),
 );

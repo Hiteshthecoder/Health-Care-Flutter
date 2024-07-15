@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../helpers/Global.dart';
 
-
 class NotFoundErrorPage extends StatelessWidget {
   NotFoundErrorPage({Key? key, required this.message, this.action, this.actionLabel = "Retry"}) : super(key: key);
 
@@ -27,12 +26,12 @@ class NotFoundErrorPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 16.0),
-          Text('Oops!', style: Theme.of(context).textTheme.headline3),
+          Text('Oops!', style: Theme.of(context).textTheme.headlineLarge),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(top: 8.0),
             child: Text(
               '$message',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.labelSmall,
               textAlign: TextAlign.center,
             ),
           ),
@@ -44,7 +43,7 @@ class NotFoundErrorPage extends StatelessWidget {
                     onPressed: action,
                     child: Text(
                       '$actionLabel',
-                      style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(color: Colors.white),
                     ),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.grey[800],

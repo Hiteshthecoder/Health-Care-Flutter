@@ -130,7 +130,7 @@ class InsightViewPage extends StatelessWidget {
                                               "Have a look",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyText1
+                                                  .bodySmall
                                                   ?.copyWith(
                                                       fontSize: 18,
                                                       fontWeight:
