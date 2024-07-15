@@ -70,12 +70,10 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5)),
+                                  borderSide: BorderSide(color: kcGray, width: 1.5)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5))),
+                                  borderSide: BorderSide(color: kcGray, width: 1.5))),
                         ),
                       ),
                     ),
@@ -92,12 +90,10 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5)),
+                                  borderSide: BorderSide(color: kcGray, width: 1.5)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5))),
+                                  borderSide: BorderSide(color: kcGray, width: 1.5))),
                         ),
                       ),
                     ),
@@ -114,12 +110,10 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5)),
+                                  borderSide: BorderSide(color: kcGray, width: 1.5)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5))),
+                                  borderSide: BorderSide(color: kcGray, width: 1.5))),
                         ),
                       ),
                     ),
@@ -129,6 +123,9 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                   height: spacer3,
                 ),
                 GestureDetector(
+                  onTap: () {
+                    Get.toNamed("/user-info-agreement");
+                  },
                   child: Text(
                     "User Information Agreement",
                     style: TextStyle(
@@ -137,36 +134,56 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                   ),
                 ),
                 Spacer(),
-                Row(
-                  children: [
-                    Checkbox(
-                      value: false,
-                      checkColor: Color(0xFF6666FF),
-                      side: BorderSide(
-                        color: Color(0xFF6666FF),
-                        width: 2,
-                      ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                          side: BorderSide(color: Color(0xFF6666FF))),
-                      onChanged: (value) => value = !value!,
-                    ),
-                    Wrap(
-                      spacing: 0,
-                      direction: Axis.horizontal,
-                      children: [
-                        Text(
-                          "I Authorize DQ Care To Setup My ABHA Health Locker Account",
+                Obx(
+                  () => Row(
+                    children: [
+                      Checkbox(
+                        value: controller.abhaHealthLockerCheckValue.value,
+                        fillColor: WidgetStatePropertyAll(Colors.transparent),
+                        activeColor: Color.fromRGBO(102, 102, 255, 1),
+                        checkColor: Color.fromRGBO(102, 102, 255, 1),
+                        side: BorderSide(
+                          color: Color(0xFF6666FF),
+                          width: 2,
                         ),
-                      ],
-                    ),
-                  ],
+                        onChanged: (value) => controller.changeAbhaHealthLockerCheckValue(),
+                      ),
+                      Text(
+                        "I Authorize DQ Care To Setup My ABHA Health Locker Account",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: spacer3,
                 ),
-                Row(
-                  children: [],
+                Obx(
+                  () => Row(
+                    children: [
+                      Checkbox(
+                        value: controller.abhaLinkMyHealthCheckValue.value,
+                        fillColor: WidgetStatePropertyAll(Colors.transparent),
+                        activeColor: Color.fromRGBO(102, 102, 255, 1),
+                        checkColor: Color.fromRGBO(102, 102, 255, 1),
+                        side: BorderSide(
+                          color: Color(0xFF6666FF),
+                          width: 2,
+                        ),
+                        // fillColor: WidgetStatePropertyAll(Colors.white),
+                        onChanged: (value) => controller.changeAbhaLinkMyHealthCheckValue(),
+                      ),
+                      Wrap(
+                        spacing: 0,
+                        children: [
+                          Text(
+                            "Link My Health Data from DQ Care With My ABHA Automatically",
+                            style: TextStyle(fontSize: 10),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: spacer3,
@@ -177,13 +194,9 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                     margin: EdgeInsets.only(bottom: spacer4),
                     height: MediaQuery.of(context).size.width * 0.09,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(spacer2),
-                        color: Color(0xFF6666FF).withOpacity(0.7)),
+                        borderRadius: BorderRadius.circular(spacer2), color: Color(0xFF6666FF).withOpacity(0.7)),
                     child: Text("Get Started",
-                        style: TextStyle(
-                            color: kcWhite,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600)))
+                        style: TextStyle(color: kcWhite, fontSize: 14, fontWeight: FontWeight.w600)))
               ],
             ),
           ),

@@ -43,9 +43,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-          statusBarColor: Theme.of(context).brightness == Brightness.dark
-              ? Colors.white
-              : kcGray,
+          statusBarColor: Theme.of(context).brightness == Brightness.dark ? Colors.white : kcGray,
           statusBarBrightness: Theme.of(context).brightness,
           systemNavigationBarColor: Colors.white),
     );
@@ -58,17 +56,11 @@ class MyApp extends StatelessWidget {
           title: "${Config.appName}",
           theme: ThemeData(
               fontFamily: GoogleFonts.getFont("Roboto").fontFamily,
-              datePickerTheme: DatePickerThemeData(
-                  surfaceTintColor: Colors.white,
-                  backgroundColor: Colors.white),
+              datePickerTheme: DatePickerThemeData(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
               dialogTheme: DialogTheme(surfaceTintColor: Colors.white),
-              bottomSheetTheme: BottomSheetThemeData(
-                  surfaceTintColor: Colors.white,
-                  backgroundColor: Colors.white),
+              bottomSheetTheme: BottomSheetThemeData(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
               elevatedButtonTheme: ElevatedButtonThemeData(
-                  style: ButtonStyle(
-                      surfaceTintColor:
-                          MaterialStateProperty.all(Colors.white))),
+                  style: ButtonStyle(surfaceTintColor: MaterialStateProperty.all(Colors.white))),
               cardTheme: CardTheme(surfaceTintColor: Colors.white),
               appBarTheme: AppBarTheme(
                   shadowColor: Colors.grey,
@@ -78,7 +70,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
           initialBinding: GlobalBindings(),
-          initialRoute: AuthState().user != null ? "/dashboard" : "/login",
+          initialRoute: "/",
           getPages: routes,
         );
       },
@@ -90,7 +82,6 @@ class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 }

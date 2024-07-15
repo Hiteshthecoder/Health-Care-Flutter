@@ -1,6 +1,7 @@
 import 'package:flutter_mvc/app/Rewards/views/RewardsPage.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/aabha1.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_adhar_card.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/user_agreement_screen.dart';
 import 'package:flutter_mvc/app/modules/ActivateAccount/views/ActivateMemberPage.dart';
 import 'package:flutter_mvc/app/modules/Auth/views/OTPVerify.dart';
 import 'package:flutter_mvc/app/modules/ChatBot/views/ChatBotPage.dart';
@@ -211,9 +212,7 @@ List<GetPage> routes = [
   ///================================
   /// Lifestyle Plan Page
   /// ===============================
-  GetPage(
-      name: '/lifestylePlanQuestionnaire',
-      page: () => LifestylePlanQuestionnaire()),
+  GetPage(name: '/lifestylePlanQuestionnaire', page: () => LifestylePlanQuestionnaire()),
   GetPage(name: '/lifestylePlan', page: () => LifestylePlanResults()),
 
   ///================================
@@ -228,4 +227,5 @@ List<GetPage> routes = [
 
   GetPage(name: '/abha-adhar-card', page: () => AbhaAdharCardPage()),
 
+  GetPage(name: '/user-info-agreement', page: () => UserAgreementScreen()),
 ];
