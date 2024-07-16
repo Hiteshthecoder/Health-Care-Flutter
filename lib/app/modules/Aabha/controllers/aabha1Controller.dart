@@ -1,11 +1,22 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mvc/app/shared/controllers/AppController.dart';
 import 'package:get/get.dart';
 
 class aabha1Controller extends AppController {
-  TextEditingController aadhaarCardController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
   RxBool abhaHealthLockerCheckValue = true.obs;
+
+  RxString? userPhoneNumber;
+
+  TextEditingController? abhaAdharFirstFourDigitController =
+      TextEditingController();
+  TextEditingController? abhaAdharSecondFourDigitController =
+      TextEditingController();
+  TextEditingController? abhaAdharThirdFourDigitController =
+      TextEditingController();
 
   RxBool abhaLinkMyHealthCheckValue = true.obs;
 
@@ -18,14 +29,11 @@ class aabha1Controller extends AppController {
   }
 
   @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
-
-  @override
   void onClose() {
     super.onClose();
-    aadhaarCardController.dispose();
+    phoneNumberController.dispose();
+    abhaAdharFirstFourDigitController?.dispose();
+    abhaAdharSecondFourDigitController?.dispose();
+    abhaAdharThirdFourDigitController?.dispose();
   }
 }

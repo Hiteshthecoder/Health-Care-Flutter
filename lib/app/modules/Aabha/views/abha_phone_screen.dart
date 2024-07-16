@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvc/app/modules/Aabha/controllers/aabha1Controller.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ui_x/helpers/ColorPalette.dart';
 import 'package:ui_x/helpers/Sizes.dart';
 
-class AbhaAdharCardPage extends StatefulWidget {
-  const AbhaAdharCardPage({super.key});
+class AbhaPhoneScreen extends StatelessWidget {
+  const AbhaPhoneScreen({super.key});
 
-  @override
-  State<AbhaAdharCardPage> createState() => _AbhaAdharCardPageState();
-}
-
-class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
       init: aabha1Controller(),
-      builder: (aabha1Controller controller) {
-        return Scaffold(
+      builder: (aabha1Controller controller) => SafeArea(
+        child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
@@ -30,7 +26,9 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                 iconSize: 34,
                 icon: Icon(Icons.close),
               ),
-              Padding(padding: EdgeInsets.only(right: spacer2))
+              Padding(
+                padding: EdgeInsets.only(right: spacer2),
+              ),
             ],
           ),
           body: Padding(
@@ -42,99 +40,76 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
               children: [
                 Row(
                   children: [
-                    Image.asset("assets/newImages/aadhaar_logo.png"),
+                    Image.asset(
+                      "assets/newImages/aabha_phone.png",
+                    ),
                   ],
                 ),
                 SizedBox(
-                  height: spacer3,
+                  height: spacer5,
                 ),
-                Text("Enter Your Aadhaar Number below"),
+                Text(
+                  "Abha Will Send You 6 Digit Code to Verify Your Mobile Number",
+                  style: GoogleFonts.openSans(
+                    fontSize: 16,
+                  ),
+                ),
                 SizedBox(
                   height: spacer3,
                 ),
                 Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.only(right: spacer2),
-                        child: TextFormField(
-                          cursorColor: Color(0xFF6666FF),
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          textAlignVertical: TextAlignVertical.top,
-                          style: TextStyle(color: kcBlack, fontSize: 14),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5))),
+                      child: TextFormField(
+                        readOnly: true,
+                        cursorColor: Color(0xFF6666FF),
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        textAlignVertical: TextAlignVertical.center,
+                        style: TextStyle(color: kcBlack, fontSize: 12),
+                        decoration: InputDecoration(
+                          hintText: "+91",
+                          hintStyle: TextStyle(color: kcGray, fontSize: 12),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide:
+                                  BorderSide(color: kcGray, width: 1.5)),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide:
+                                  BorderSide(color: kcGray, width: 1.5)),
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.only(right: spacer2),
-                        child: TextFormField(
-                          cursorColor: Color(0xFF6666FF),
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          textAlignVertical: TextAlignVertical.top,
-                          style: TextStyle(color: kcBlack, fontSize: 14),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5))),
-                        ),
-                      ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.02,
                     ),
                     Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.only(right: spacer2),
-                        child: TextFormField(
-                          cursorColor: Color(0xFF6666FF),
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          textAlignVertical: TextAlignVertical.top,
-                          style: TextStyle(color: kcBlack, fontSize: 14),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(spacer2),
-                                  borderSide:
-                                      BorderSide(color: kcGray, width: 1.5))),
+                      flex: 5,
+                      child: TextFormField(
+                        cursorColor: Color(0xFF6666FF),
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        textAlignVertical: TextAlignVertical.center,
+                        style: GoogleFonts.openSans(
+                          fontSize: 12,
+                          color: kcDark,
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "9999999999",
+                          hintStyle: TextStyle(color: kcGray, fontSize: 12),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide:
+                                  BorderSide(color: kcGray, width: 1.5)),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide:
+                                  BorderSide(color: kcGray, width: 1.5)),
                         ),
                       ),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: spacer3,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Get.toNamed("/user-info-agreement");
-                  },
-                  child: Text(
-                    "User Information Agreement",
-                    style: TextStyle(
-                      color: Color(0xFF6666FF),
-                    ),
-                  ),
                 ),
                 Spacer(),
                 Obx(
@@ -194,7 +169,7 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                   height: spacer3,
                 ),
                 GestureDetector(
-                  onTap: () => Get.toNamed("/abha-otp-verify"),
+                  onTap: () => Get.toNamed(""),
                   child: Container(
                     // margin: EdgeInsets.only(top: h / 100 * 3),
                     alignment: Alignment.center,
@@ -204,7 +179,7 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                         borderRadius: BorderRadius.circular(spacer2),
                         color: Color(0xFF6666FF).withOpacity(0.7)),
                     child: Text(
-                      "Get Started",
+                      "Continue",
                       style: TextStyle(
                           color: kcWhite,
                           fontSize: 14,
@@ -215,8 +190,8 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
               ],
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

@@ -25,7 +25,8 @@ class OTPVerify extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () => Keyboard.hide(context),
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 90, horizontal: 30),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 90, horizontal: 30),
                       color: Colors.transparent,
                       width: double.infinity,
                       height: screen.height - 55,
@@ -38,22 +39,34 @@ class OTPVerify extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(height: spacer16),
-                              Text("Please enter the OTP sent to", style: TextStyl.subtitle!.copyWith(fontWeight: FontWeight.bold, fontSize: 18)),
+                              Text("Please enter the OTP sent to",
+                                  style: TextStyl.subtitle!.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18)),
                               SizedBox(
                                 height: 5,
                               ),
                               Text("+91 ${controller.phoneNumber.text}",
-                                  style: TextStyl.subtitle!.copyWith(fontSize: 15, color: kcBlack.withOpacity(0.5))),
+                                  style: TextStyl.subtitle!.copyWith(
+                                      fontSize: 15,
+                                      color: kcBlack.withOpacity(0.5))),
                               const SizedBox(height: 70),
                               Center(
                                 child: PinFieldAutoFill(
-                                  currentCode: controller.number == controller.phoneNumber.text ? controller.otp : "",
+                                  currentCode: controller.number ==
+                                          controller.phoneNumber.text
+                                      ? controller.otp
+                                      : "",
                                   controller: controller.otpInput,
                                   codeLength: 4,
                                   decoration: UnderlineDecoration(
-                                      colorBuilder: FixedColorBuilder(kcDarkAlt),
+                                      colorBuilder:
+                                          FixedColorBuilder(kcDarkAlt),
                                       gapSpace: 20,
-                                      textStyle: TextStyle(color: kcDarkAlt, fontSize: 35, height: -0.0010)),
+                                      textStyle: TextStyle(
+                                          color: kcDarkAlt,
+                                          fontSize: 35,
+                                          height: -0.0010)),
                                   onCodeSubmitted: (code) {},
                                 ),
                               ),
@@ -72,18 +85,25 @@ class OTPVerify extends StatelessWidget {
                                           ),
                                           const SizedBox(width: 5),
                                           Countr(
-                                              controller: controller.countrController!,
-                                              onTimerComplete: () {
-                                                controller.setTimeUp();
-                                              },
-                                              builder: (BuildContext context, CountrDuration remainingTime) {
-                                                return Container(
-                                                  child: Text(
-                                                    "${remainingTime.minutes}:${remainingTime.seconds}",
-                                                    style: TextStyl.bodySm?.copyWith(color: kcBlack, fontWeight: FontWeight.bold),
-                                                  ),
-                                                );
-                                              })
+                                            controller:
+                                                controller.countrController!,
+                                            onTimerComplete: () {
+                                              controller.setTimeUp();
+                                            },
+                                            builder: (BuildContext context,
+                                                CountrDuration remainingTime) {
+                                              return Container(
+                                                child: Text(
+                                                  "${remainingTime.minutes}:${remainingTime.seconds}",
+                                                  style: TextStyl.bodySm
+                                                      ?.copyWith(
+                                                          color: kcBlack,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                ),
+                                              );
+                                            },
+                                          ),
                                         ],
                                       )
                                     : Row(

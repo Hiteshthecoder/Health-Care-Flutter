@@ -1,6 +1,8 @@
 import 'package:flutter_mvc/app/Rewards/views/RewardsPage.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/aabha1.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_adhar_card.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_otp_verfication_screen.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_phone_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/user_agreement_screen.dart';
 import 'package:flutter_mvc/app/modules/ActivateAccount/views/ActivateMemberPage.dart';
 import 'package:flutter_mvc/app/modules/Auth/views/OTPVerify.dart';
@@ -212,7 +214,9 @@ List<GetPage> routes = [
   ///================================
   /// Lifestyle Plan Page
   /// ===============================
-  GetPage(name: '/lifestylePlanQuestionnaire', page: () => LifestylePlanQuestionnaire()),
+  GetPage(
+      name: '/lifestylePlanQuestionnaire',
+      page: () => LifestylePlanQuestionnaire()),
   GetPage(name: '/lifestylePlan', page: () => LifestylePlanResults()),
 
   ///================================
@@ -226,6 +230,8 @@ List<GetPage> routes = [
   GetPage(name: '/aabha1', page: () => aabha1()),
 
   GetPage(name: '/abha-adhar-card', page: () => AbhaAdharCardPage()),
+  GetPage(name: '/abha-phone-number', page: () => AbhaPhoneScreen()),
+  GetPage(name: '/abha-otp-verify', page: () => AbhaOtpVerificationScreen()),
 
   GetPage(name: '/user-info-agreement', page: () => UserAgreementScreen()),
 ];

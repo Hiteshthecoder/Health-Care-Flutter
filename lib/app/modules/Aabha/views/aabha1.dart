@@ -230,19 +230,22 @@ class _aabha1State extends State<aabha1> {
                                       )),
                                 ],
                               ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: h / 100 * 0.8,
-                                    horizontal: w / 100 * 5),
-                                decoration: BoxDecoration(
-                                    color: Color(0xFF6666FF),
-                                    borderRadius:
-                                        BorderRadius.circular(w / 100 * 2)),
-                                child: Text("Create",
-                                    style: TextStyle(
-                                        color: kcWhite,
-                                        fontSize: w / 100 * 3.5,
-                                        fontWeight: FontWeight.w600)),
+                              GestureDetector(
+                                onTap: () => Get.toNamed("/abha-phone-number"),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: h / 100 * 0.8,
+                                      horizontal: w / 100 * 5),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xFF6666FF),
+                                      borderRadius:
+                                          BorderRadius.circular(w / 100 * 2)),
+                                  child: Text("Create",
+                                      style: TextStyle(
+                                          color: kcWhite,
+                                          fontSize: w / 100 * 3.5,
+                                          fontWeight: FontWeight.w600)),
+                                ),
                               )
                             ]),
                       ),
