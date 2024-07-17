@@ -106,20 +106,23 @@ class AbhaOtpVerificationScreen extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
-                Container(
-                  // margin: EdgeInsets.only(top: h / 100 * 3),
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(bottom: spacer4),
-                  height: MediaQuery.of(context).size.width * 0.11,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(spacer2),
-                      color: Color(0xFF6666FF).withOpacity(0.7)),
-                  child: Text(
-                    "Continue",
-                    style: TextStyle(
-                        color: kcWhite,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
+                GestureDetector(
+                  onTap: () => Get.toNamed("/abha-address"),
+                  child: Container(
+                    // margin: EdgeInsets.only(top: h / 100 * 3),
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(bottom: spacer4),
+                    height: MediaQuery.of(context).size.width * 0.11,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(spacer2),
+                        color: Color(0xFF6666FF).withOpacity(0.7)),
+                    child: Text(
+                      "Continue",
+                      style: TextStyle(
+                          color: kcWhite,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ],

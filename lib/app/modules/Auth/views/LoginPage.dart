@@ -261,14 +261,14 @@ class LoginPage extends StatelessWidget {
                       textAlignVertical: TextAlignVertical.top,
                       style: TextStyle(color: kcBlack, fontSize: w / 100 * 4),
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(w / 100 * 3),
-                              borderSide:
-                                  BorderSide(color: kcGray, width: 1.5)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(w / 100 * 3),
-                              borderSide:
-                                  BorderSide(color: kcGray, width: 1.5))),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(w / 100 * 3),
+                            borderSide: BorderSide(color: kcGray, width: 1.5)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(w / 100 * 3),
+                          borderSide: BorderSide(color: kcGray, width: 1.5),
+                        ),
+                      ),
                     ),
                   ),
                 )
