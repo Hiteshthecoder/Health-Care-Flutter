@@ -2,6 +2,7 @@ import 'package:flutter_mvc/app/Rewards/views/RewardsPage.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/aabha1.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_address_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_adhar_card.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_created_success.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_otp_verfication_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_phone_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/user_agreement_screen.dart';
@@ -236,4 +237,5 @@ List<GetPage> routes = [
   GetPage(name: '/user-info-agreement', page: () => UserAgreementScreen()),
 
   GetPage(name: '/abha-address', page: () => AbhaAdressScreen()),
+  GetPage(name: "/abha-created-success", page: () => AbhaCreatedSuccess())
 ];

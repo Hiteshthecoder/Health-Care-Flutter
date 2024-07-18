@@ -56,13 +56,13 @@ class AbhaAdressScreen extends StatelessWidget {
                   height: spacer3,
                 ),
                 AbhaAddressDetails(),
-                SizedBox(
-                  height: spacer2,
-                ),
+                SizedBox(height: spacer2),
                 AbhaAddressSuggestions(),
                 Spacer(),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed("/abha-created-success");
+                  },
                   child: Container(
                     // margin: EdgeInsets.only(top: h / 100 * 3),
                     alignment: Alignment.center,

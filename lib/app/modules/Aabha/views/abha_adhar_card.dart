@@ -201,10 +201,11 @@ class _AbhaAdharCardPageState extends State<AbhaAdharCardPage> {
                     margin: EdgeInsets.only(bottom: spacer4),
                     height: MediaQuery.of(context).size.width * 0.11,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(spacer2),
-                        color: Color(0xFF6666FF).withOpacity(0.7)),
+                      borderRadius: BorderRadius.circular(spacer2),
+                      color: Color(0xFF6666FF).withOpacity(0.7),
+                    ),
                     child: Text(
-                      "Get Started",
+                      "Continue",
                       style: TextStyle(
                           color: kcWhite,
                           fontSize: 14,
