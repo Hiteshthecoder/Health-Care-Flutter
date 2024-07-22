@@ -51,7 +51,9 @@ class AbhaCreatedSuccess extends StatelessWidget {
                   ),
                   Spacer(),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed("/abha-card");
+                    },
                     child: Container(
                       // margin: EdgeInsets.only(top: h / 100 * 3),
                       alignment: Alignment.center,
