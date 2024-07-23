@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_main_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_provider_screen.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,14 +76,7 @@ class _AbhaCardScreenState extends State<AbhaCardScreen>
         body: TabBarView(
           controller: tabController,
           children: [
-            // Container(
-            //   height: Get.size.height * 0.12,
-            //   padding: EdgeInsets.symmetric(
-            //     horizontal: spacer3,
-            //   ),
-            //   child:
-            // ),
-            Text("1"),
+            AbhaMainScreen(),
             Text("2"),
             AbhaProvidersScreen(),
           ],
