@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_cosents_screeb.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_main_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_provider_screen.dart';
 import 'package:get/get.dart';
@@ -13,8 +14,7 @@ class AbhaCardScreen extends StatefulWidget {
   State<AbhaCardScreen> createState() => _AbhaCardScreenState();
 }
 
-class _AbhaCardScreenState extends State<AbhaCardScreen>
-    with TickerProviderStateMixin {
+class _AbhaCardScreenState extends State<AbhaCardScreen> with TickerProviderStateMixin {
   List<Widget> abhaCardTabs = [
     Tab(
       child: Text(
@@ -77,7 +77,7 @@ class _AbhaCardScreenState extends State<AbhaCardScreen>
           controller: tabController,
           children: [
             AbhaMainScreen(),
-            Text("2"),
+            AbhaConsentsScreen(),
             AbhaProvidersScreen(),
           ],
         ),

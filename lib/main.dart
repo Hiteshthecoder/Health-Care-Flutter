@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_mvc/app/shared/controllers/AuthState.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,18 +54,16 @@ class MyApp extends StatelessWidget {
           defaultTransition: Transition.fadeIn,
           title: "${Config.appName}",
           theme: ThemeData(
-              fontFamily: GoogleFonts.getFont("Roboto").fontFamily,
-              datePickerTheme: DatePickerThemeData(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
-              dialogTheme: DialogTheme(surfaceTintColor: Colors.white),
-              bottomSheetTheme: BottomSheetThemeData(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
-              elevatedButtonTheme: ElevatedButtonThemeData(
-                  style: ButtonStyle(surfaceTintColor: MaterialStateProperty.all(Colors.white))),
-              cardTheme: CardTheme(surfaceTintColor: Colors.white),
-              appBarTheme: AppBarTheme(
-                  shadowColor: Colors.grey,
-                  elevation: 2,
-                  surfaceTintColor: Colors.white,
-                  backgroundColor: Colors.white)),
+            fontFamily: GoogleFonts.getFont("Roboto").fontFamily,
+            datePickerTheme: DatePickerThemeData(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
+            dialogTheme: DialogTheme(surfaceTintColor: Colors.white),
+            bottomSheetTheme: BottomSheetThemeData(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
+            elevatedButtonTheme:
+                ElevatedButtonThemeData(style: ButtonStyle(surfaceTintColor: MaterialStateProperty.all(Colors.white))),
+            cardTheme: CardTheme(surfaceTintColor: Colors.white),
+            appBarTheme: AppBarTheme(
+                shadowColor: Colors.grey, elevation: 2, surfaceTintColor: Colors.white, backgroundColor: Colors.white),
+          ),
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
           initialBinding: GlobalBindings(),
