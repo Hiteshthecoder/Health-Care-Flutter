@@ -56,15 +56,18 @@ class ConsentFooter extends StatelessWidget {
           height: spacer3,
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed("/abha-consentpin-setup");
+          },
           child: Container(
             margin: EdgeInsets.symmetric(
               horizontal: Get.size.width * 0.05,
             ),
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.width * 0.11,
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(spacer2), color: Color(0xFF6666FF).withOpacity(0.7)),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(spacer2),
+                color: Color(0xFF6666FF).withOpacity(0.7)),
             child: Text(
               "Setup Consent PIN",
               style: GoogleFonts.openSans(

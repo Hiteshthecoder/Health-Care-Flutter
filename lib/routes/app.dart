@@ -3,6 +3,7 @@ import 'package:flutter_mvc/app/modules/Aabha/views/aabha1.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_address_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_adhar_card.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_card_screen.dart';
+import 'package:flutter_mvc/app/modules/Aabha/views/abha_consentpin_setup.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_created_success.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_otp_verfication_screen.dart';
 import 'package:flutter_mvc/app/modules/Aabha/views/abha_phone_screen.dart';
@@ -241,4 +242,5 @@ List<GetPage> routes = [
   GetPage(name: "/abha-created-success", page: () => AbhaCreatedSuccess()),
 
   GetPage(name: "/abha-card", page: () => AbhaCardScreen()),
+  GetPage(name: "/abha-consentpin-setup", page: () => AbhaConsentPinSetup()),
 ];

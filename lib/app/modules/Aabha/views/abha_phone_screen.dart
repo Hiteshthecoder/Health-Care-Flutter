@@ -115,21 +115,30 @@ class AbhaPhoneScreen extends StatelessWidget {
                 Obx(
                   () => Row(
                     children: [
-                      Checkbox(
-                        value: controller.abhaHealthLockerCheckValue.value,
-                        fillColor: WidgetStatePropertyAll(Colors.transparent),
-                        activeColor: Color.fromRGBO(102, 102, 255, 1),
-                        checkColor: Color.fromRGBO(102, 102, 255, 1),
-                        side: BorderSide(
-                          color: Color(0xFF6666FF),
-                          width: 2,
+                      Expanded(
+                        child: Checkbox(
+                          value: controller.abhaHealthLockerCheckValue.value,
+                          fillColor: WidgetStatePropertyAll(Colors.transparent),
+                          activeColor: Color.fromRGBO(102, 102, 255, 1),
+                          checkColor: Color.fromRGBO(102, 102, 255, 1),
+                          side: BorderSide(
+                            color: Color(0xFF6666FF),
+                            width: 2,
+                          ),
+                          onChanged: (value) =>
+                              controller.changeAbhaHealthLockerCheckValue(),
                         ),
-                        onChanged: (value) =>
-                            controller.changeAbhaHealthLockerCheckValue(),
                       ),
-                      Text(
-                        "I Authorize DQ Care To Setup My ABHA Health Locker Account",
-                        style: TextStyle(fontSize: 10),
+                      Expanded(
+                        flex: 5,
+                        child: Wrap(
+                          children: [
+                            Text(
+                              "I Authorize DQ Care To Setup My ABHA Health Locker Account",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -140,27 +149,31 @@ class AbhaPhoneScreen extends StatelessWidget {
                 Obx(
                   () => Row(
                     children: [
-                      Checkbox(
-                        value: controller.abhaLinkMyHealthCheckValue.value,
-                        fillColor: WidgetStatePropertyAll(Colors.transparent),
-                        activeColor: Color.fromRGBO(102, 102, 255, 1),
-                        checkColor: Color.fromRGBO(102, 102, 255, 1),
-                        side: BorderSide(
-                          color: Color(0xFF6666FF),
-                          width: 2,
-                        ),
-                        // fillColor: WidgetStatePropertyAll(Colors.white),
-                        onChanged: (value) =>
-                            controller.changeAbhaLinkMyHealthCheckValue(),
-                      ),
-                      Wrap(
-                        spacing: 0,
-                        children: [
-                          Text(
-                            "Link My Health Data from DQ Care With My ABHA Automatically",
-                            style: TextStyle(fontSize: 10),
+                      Expanded(
+                        child: Checkbox(
+                          value: controller.abhaLinkMyHealthCheckValue.value,
+                          fillColor: WidgetStatePropertyAll(Colors.transparent),
+                          activeColor: Color.fromRGBO(102, 102, 255, 1),
+                          checkColor: Color.fromRGBO(102, 102, 255, 1),
+                          side: BorderSide(
+                            color: Color(0xFF6666FF),
+                            width: 2,
                           ),
-                        ],
+                          // fillColor: WidgetStatePropertyAll(Colors.white),
+                          onChanged: (value) =>
+                              controller.changeAbhaLinkMyHealthCheckValue(),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 5,
+                        child: Wrap(
+                          children: [
+                            Text(
+                              "Link My Health Data from DQ Care With My ABHA Automatically",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

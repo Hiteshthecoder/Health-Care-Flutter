@@ -62,9 +62,10 @@ class DashboardPage extends StatelessWidget {
                                 color: kcWhite,
                                 boxShadow: [
                                   BoxShadow(
-                                      color: kcBlack.withOpacity(0.15),
-                                      blurRadius: 12,
-                                      spreadRadius: -1),
+                                    color: kcBlack.withOpacity(0.15),
+                                    blurRadius: 12,
+                                    spreadRadius: -1,
+                                  ),
                                 ],
                               ),
                               padding:
