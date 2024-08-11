@@ -65,9 +65,8 @@ class ConsentFooter extends StatelessWidget {
             ),
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(spacer2),
-                color: Color(0xFF6666FF).withOpacity(0.7)),
+            decoration:
+                BoxDecoration(borderRadius: BorderRadius.circular(spacer2), color: Color(0xFF6666FF).withOpacity(0.7)),
             child: Text(
               "Setup Consent PIN",
               style: GoogleFonts.openSans(

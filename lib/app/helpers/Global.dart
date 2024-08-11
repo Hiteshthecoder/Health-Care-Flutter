@@ -116,17 +116,12 @@ MaterialColor generateMaterialColor(Color color) {
   });
 }
 
-int _tintValue(int value, double factor) =>
-    max(0, min((value + ((255 - value) * factor)).round(), 255));
+int _tintValue(int value, double factor) => max(0, min((value + ((255 - value) * factor)).round(), 255));
 
-Color _tintColor(Color color, double factor) => Color.fromRGBO(
-    _tintValue(color.red, factor),
-    _tintValue(color.green, factor),
-    _tintValue(color.blue, factor),
-    1);
+Color _tintColor(Color color, double factor) =>
+    Color.fromRGBO(_tintValue(color.red, factor), _tintValue(color.green, factor), _tintValue(color.blue, factor), 1);
 
-int _shadeValue(int value, double factor) =>
-    max(0, min(value - (value * factor).round(), 255));
+int _shadeValue(int value, double factor) => max(0, min(value - (value * factor).round(), 255));
 
 Color _shadeColor(Color color, double factor) => Color.fromRGBO(
       _shadeValue(color.red, factor),
@@ -149,9 +144,7 @@ void showConfirmDialog({
     Dialog(
       backgroundColor: kcWhite,
       child: Container(
-        padding:
-            const EdgeInsets.symmetric(vertical: spacer8, horizontal: spacer)
-                .copyWith(bottom: 4),
+        padding: const EdgeInsets.symmetric(vertical: spacer8, horizontal: spacer).copyWith(bottom: 4),
         decoration: BoxDecoration(
           color: kcWhite,
           borderRadius: BorderRadius.circular(spacer2),
@@ -175,8 +168,7 @@ void showConfirmDialog({
               children: [
                 Expanded(
                   child: TextButton(
-                    style: TextButton.styleFrom(
-                        backgroundColor: Colors.transparent),
+                    style: TextButton.styleFrom(backgroundColor: Colors.transparent),
                     child: Text(
                       "$cancelLabel",
                       style: TextStyl.button?.copyWith(color: kcDarkAlt),
@@ -190,8 +182,7 @@ void showConfirmDialog({
                 const SizedBox(width: spacer3),
                 Expanded(
                   child: TextButton(
-                    style: TextButton.styleFrom(
-                        backgroundColor: Colors.transparent),
+                    style: TextButton.styleFrom(backgroundColor: Colors.transparent),
                     child: Text(
                       "$confirmLabel",
                       style: TextStyl.button?.copyWith(color: kcDarkAlt),
@@ -222,10 +213,8 @@ extension DateExt on DateTime {
 /// ============================
 int highestValue(String input) {
   List<String> stringNumbers = input.split(",");
-  List<int> numbers =
-      stringNumbers.map((string) => double.parse(string).round()).toList();
-  int highest =
-      numbers.reduce((value, element) => value > element ? value : element);
+  List<int> numbers = stringNumbers.map((string) => double.parse(string).round()).toList();
+  int highest = numbers.reduce((value, element) => value > element ? value : element);
   log.w("$highest:::::::${highest > -1 && highest < 50}");
   if (highest > -1 && highest < 50) {
     return 50;

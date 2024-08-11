@@ -26,125 +26,108 @@ class LoginPage extends StatelessWidget {
       child: SingleChildScrollView(
           child: InkWell(
               onTap: () => Keyboard.hide(context),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: h * 0.88,
-                      child: Column(
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(top: h / 100 * 8),
-                              child: CarouselSlider(
-                                  items: [
-                                    Image.asset(
-                                      "assets/newImages/medical_prescription.png",
-                                      // width: w * 0.9,
-                                      // height: h * 0.5,
-                                      // fit: BoxFit.contain,
-                                    ),
-                                    Image.asset(
-                                      "assets/newImages/online_doctor.png",
-                                    ),
-                                    Image.asset(
-                                      "assets/newImages/qr_code.png",
-                                    ),
-                                    Image.asset(
-                                      "assets/newImages/gift_card.png",
-                                    ),
-                                  ],
-                                  carouselController:
-                                      controller.carouselController,
-                                  options: CarouselOptions(
-                                      height: h * 0.45,
-                                      onPageChanged: (index, reason) {
-                                        controller.imageCurrentIndex.value =
-                                            index;
-                                        // controller.pageController.animateTo(
-                                        //     controller.imageCurrentIndex.value
-                                        //         .toDouble(),
-                                        //     duration: Duration(microseconds: 300),
-                                        //     curve: Curves.fastOutSlowIn);
-                                      },
-                                      // padEnds: true,
-                                      viewportFraction: 1))),
-                          Obx(
-                            () => Container(
-                                margin: EdgeInsets.only(top: h / 100 * 5),
-                                child: AnimatedSmoothIndicator(
-                                  // controller: controller.pageController,
-                                  activeIndex:
-                                      controller.imageCurrentIndex.value,
-                                  // controller: pageController,
-                                  //     as PageController, // PageController
-                                  count: 4,
-                                  effect: WormEffect(
-                                      dotColor: Color(0xffc1c1ff),
-                                      dotHeight: w / 100 * 2,
-                                      dotWidth: w / 100 * 2,
-                                      activeDotColor: Color(0xFF6666FF)),
-                                )),
-                          ),
-
-                          // carouselController: carouselController,
-                          Obx(
-                            () => Container(
-                                width: w,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: w / 100 * 4),
-                                margin: EdgeInsets.only(top: h / 100 * 5),
-                                // alignment: Alignment.center,
-                                child: Text(
-                                    controller.getCurrentTitleAccToSlider(
-                                        controller.imageCurrentIndex.value),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontSize: w / 100 * 6,
-                                        fontWeight: FontWeight.bold))),
-                          ),
-                          Obx(
-                            () => Container(
-                                // alignment: Alignment.center,
-                                width: w,
-                                margin: EdgeInsets.only(top: h / 100 * 2),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: w / 100 * 2),
-                                child: Text(
-                                    controller.getCurrentSubTitleAccToSlider(
-                                        controller.imageCurrentIndex.value),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: w / 100 * 4,
-                                      // fontWeight: FontWeight.bold
-                                    ))),
-                          )
-                        ],
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Container(
+                  height: h * 0.88,
+                  child: Column(
+                    children: [
+                      Container(
+                          margin: EdgeInsets.only(top: h / 100 * 8),
+                          child: CarouselSlider(
+                              items: [
+                                Image.asset(
+                                  "assets/newImages/medical_prescription.png",
+                                  // width: w * 0.9,
+                                  // height: h * 0.5,
+                                  // fit: BoxFit.contain,
+                                ),
+                                Image.asset(
+                                  "assets/newImages/online_doctor.png",
+                                ),
+                                Image.asset(
+                                  "assets/newImages/qr_code.png",
+                                ),
+                                Image.asset(
+                                  "assets/newImages/gift_card.png",
+                                ),
+                              ],
+                              carouselController: controller.carouselController,
+                              options: CarouselOptions(
+                                  height: h * 0.45,
+                                  onPageChanged: (index, reason) {
+                                    controller.imageCurrentIndex.value = index;
+                                    // controller.pageController.animateTo(
+                                    //     controller.imageCurrentIndex.value
+                                    //         .toDouble(),
+                                    //     duration: Duration(microseconds: 300),
+                                    //     curve: Curves.fastOutSlowIn);
+                                  },
+                                  // padEnds: true,
+                                  viewportFraction: 1))),
+                      Obx(
+                        () => Container(
+                            margin: EdgeInsets.only(top: h / 100 * 5),
+                            child: AnimatedSmoothIndicator(
+                              // controller: controller.pageController,
+                              activeIndex: controller.imageCurrentIndex.value,
+                              // controller: pageController,
+                              //     as PageController, // PageController
+                              count: 4,
+                              effect: WormEffect(
+                                  dotColor: Color(0xffc1c1ff),
+                                  dotHeight: w / 100 * 2,
+                                  dotWidth: w / 100 * 2,
+                                  activeDotColor: Color(0xFF6666FF)),
+                            )),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        showModalBottomSheet<dynamic>(
-                            isScrollControlled: true,
-                            context: context,
-                            builder: (context) {
-                              return bottonSheetWidget(w, h, context);
-                            });
-                      },
-                      child: Container(
-                          width: w * 0.9,
-                          // margin: EdgeInsets.only(top: h / 100 * 3),
-                          alignment: Alignment.center,
-                          height: h * 0.065,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(w / 100 * 3),
-                              color: Color(0xFF6666FF)),
-                          child: Text("Get Started",
-                              style: TextStyle(
-                                  color: kcWhite,
-                                  fontSize: w / 100 * 3.5,
-                                  fontWeight: FontWeight.w600))),
-                    ),
-                  ]))),
+
+                      // carouselController: carouselController,
+                      Obx(
+                        () => Container(
+                            width: w,
+                            padding: EdgeInsets.symmetric(horizontal: w / 100 * 4),
+                            margin: EdgeInsets.only(top: h / 100 * 5),
+                            // alignment: Alignment.center,
+                            child: Text(controller.getCurrentTitleAccToSlider(controller.imageCurrentIndex.value),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: w / 100 * 6, fontWeight: FontWeight.bold))),
+                      ),
+                      Obx(
+                        () => Container(
+                            // alignment: Alignment.center,
+                            width: w,
+                            margin: EdgeInsets.only(top: h / 100 * 2),
+                            padding: EdgeInsets.symmetric(horizontal: w / 100 * 2),
+                            child: Text(controller.getCurrentSubTitleAccToSlider(controller.imageCurrentIndex.value),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: w / 100 * 4,
+                                  // fontWeight: FontWeight.bold
+                                ))),
+                      )
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet<dynamic>(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) {
+                          return bottonSheetWidget(w, h, context);
+                        });
+                  },
+                  child: Container(
+                      width: w * 0.9,
+                      // margin: EdgeInsets.only(top: h / 100 * 3),
+                      alignment: Alignment.center,
+                      height: h * 0.065,
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(w / 100 * 3), color: Color(0xFF6666FF)),
+                      child: Text("Get Started",
+                          style: TextStyle(color: kcWhite, fontSize: w / 100 * 3.5, fontWeight: FontWeight.w600))),
+                ),
+              ]))),
     )));
   }
 
@@ -160,34 +143,24 @@ class LoginPage extends StatelessWidget {
             margin: EdgeInsets.only(top: h / 100 * 1),
             width: w * 0.4,
             height: h / 100 * 0.5,
-            decoration: BoxDecoration(
-                color: kcGray,
-                borderRadius: BorderRadius.circular(w / 100 * 10)),
+            decoration: BoxDecoration(color: kcGray, borderRadius: BorderRadius.circular(w / 100 * 10)),
           ),
           Container(
               width: w,
               padding: EdgeInsets.symmetric(horizontal: w / 100 * 4),
               margin: EdgeInsets.only(top: h / 100 * 2),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Phone Number",
-                        style: TextStyle(
-                            fontSize: w / 100 * 5,
-                            color: kcBlack,
-                            fontWeight: FontWeight.bold)),
-                    InkWell(
-                      onTap: () {
-                        // Navigator.pop(context);
-                        Get.close(1);
-                      },
-                      child: Text("Cancel",
-                          style: TextStyle(
-                              fontSize: w / 100 * 4,
-                              color: kcBlack,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ])),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Text("Phone Number",
+                    style: TextStyle(fontSize: w / 100 * 5, color: kcBlack, fontWeight: FontWeight.bold)),
+                InkWell(
+                  onTap: () {
+                    // Navigator.pop(context);
+                    Get.close(1);
+                  },
+                  child: Text("Cancel",
+                      style: TextStyle(fontSize: w / 100 * 4, color: kcBlack, fontWeight: FontWeight.w600)),
+                ),
+              ])),
           Container(
             width: w,
             margin: EdgeInsets.only(top: h / 100 * 1),
@@ -198,10 +171,7 @@ class LoginPage extends StatelessWidget {
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.symmetric(horizontal: w / 100 * 4),
               child: Text("Enter your phone number to get started",
-                  style: TextStyle(
-                      fontSize: w / 100 * 3.5,
-                      color: kcBlack,
-                      fontWeight: FontWeight.w500))),
+                  style: TextStyle(fontSize: w / 100 * 3.5, color: kcBlack, fontWeight: FontWeight.w500))),
           Container(
             width: w,
             alignment: Alignment.center,
@@ -228,8 +198,7 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(color: kcBlack, fontSize: w / 100 * 4),
                     decoration: InputDecoration(
                       hintText: "+91",
-                      hintStyle:
-                          TextStyle(color: kcGray, fontSize: w / 100 * 4),
+                      hintStyle: TextStyle(color: kcGray, fontSize: w / 100 * 4),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(w / 100 * 3),
                           borderSide: BorderSide(color: kcGray, width: 1.5)),
@@ -245,11 +214,8 @@ class LoginPage extends StatelessWidget {
                     margin: EdgeInsets.only(left: w / 100 * 2),
                     child: TextFormField(
                       controller: controller.phoneNumber,
-                      validator: (value) => Validator("Phone", value!)
-                          .specialCharacter()
-                          .between(10, 10)
-                          .required()
-                          .validate(),
+                      validator: (value) =>
+                          Validator("Phone", value!).specialCharacter().between(10, 10).required().validate(),
                       onChanged: (value) {
                         if (value.length >= 10) {
                           controller.phoneNumber.text = value.substring(0, 10);
@@ -291,17 +257,12 @@ class LoginPage extends StatelessWidget {
                 () => Container(
                     alignment: Alignment.center,
                     height: h * 0.065,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(w / 100 * 3),
-                        color: Color(0xFF6666FF)),
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(w / 100 * 3), color: Color(0xFF6666FF)),
                     child: (controller.loading.value)
-                        ? LoadingAnimationWidget.prograssiveDots(
-                            color: kcWhite, size: w / 100 * 10)
+                        ? LoadingAnimationWidget.prograssiveDots(color: kcWhite, size: w / 100 * 10)
                         : Text("Get OTP",
-                            style: TextStyle(
-                                color: kcWhite,
-                                fontSize: w / 100 * 3.5,
-                                fontWeight: FontWeight.w600))),
+                            style: TextStyle(color: kcWhite, fontSize: w / 100 * 3.5, fontWeight: FontWeight.w600))),
               ),
             ),
           ),
@@ -311,8 +272,7 @@ class LoginPage extends StatelessWidget {
               margin: EdgeInsets.only(top: h / 100 * 3),
               child: Row(children: [
                 Expanded(child: Divider(thickness: 1, endIndent: 5)),
-                Text("OR",
-                    style: TextStyle(fontSize: w / 100 * 3, color: kcBlack)),
+                Text("OR", style: TextStyle(fontSize: w / 100 * 3, color: kcBlack)),
                 Expanded(child: Divider(thickness: 1, indent: 5)),
               ])),
           Container(
@@ -321,22 +281,16 @@ class LoginPage extends StatelessWidget {
             margin: EdgeInsets.only(top: h / 100 * 3),
             child: Container(
               height: h * 0.07,
-              decoration: BoxDecoration(
-                  border: Border.all(color: kcGray),
-                  borderRadius: BorderRadius.circular(w / 100 * 3)),
+              decoration:
+                  BoxDecoration(border: Border.all(color: kcGray), borderRadius: BorderRadius.circular(w / 100 * 3)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.network(
-                      "https://img.icons8.com/fluency/96/google-logo.png",
-                      width: w / 100 * 8,
-                      height: h / 100 * 4,
-                      fit: BoxFit.fill),
+                  Image.network("https://img.icons8.com/fluency/96/google-logo.png",
+                      width: w / 100 * 8, height: h / 100 * 4, fit: BoxFit.fill),
                   Container(
                     margin: EdgeInsets.only(left: w / 100 * 2),
-                    child: Text("Continue With Google",
-                        style:
-                            TextStyle(fontSize: w / 100 * 4, color: kcBlack)),
+                    child: Text("Continue With Google", style: TextStyle(fontSize: w / 100 * 4, color: kcBlack)),
                   )
                 ],
               ),
@@ -353,9 +307,7 @@ class LoginPage extends StatelessWidget {
                 TextSpan(text: "By continuing you accept our ", children: [
                   TextSpan(
                       text: "Privacy Policy",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
+                      style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           launch(Config.privacyPolicyUrl);
@@ -363,15 +315,11 @@ class LoginPage extends StatelessWidget {
                       children: [
                         TextSpan(
                             text: " and ",
-                            style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontWeight: FontWeight.normal),
+                            style: TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.normal),
                             children: [
                               TextSpan(
                                   text: "Term of Use",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.underline),
+                                  style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       launch(Config.termsAndConditionUrl);
@@ -380,9 +328,7 @@ class LoginPage extends StatelessWidget {
                       ])
                 ])),
           ),
-          Padding(
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom))
+          Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
         ]),
       ),
     );

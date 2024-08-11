@@ -62,8 +62,7 @@ class LoginController extends AppController {
   @override
   onInit() async {
     super.onInit();
-    countrController = CountrController(
-        endTime: int.parse(_start.value).seconds, initialize: true);
+    countrController = CountrController(endTime: int.parse(_start.value).seconds, initialize: true);
     if (await storage.read('phone') != null) {
       phoneNumber.text = await storage.read(
         'phone',
@@ -173,7 +172,6 @@ class LoginController extends AppController {
   }
 
   Future<void> updateUserDeviceToken() async {
-    await _loginService
-        .updateUserDeviceToken(body: {"fcm_token": fcmController.deviceToken});
+    await _loginService.updateUserDeviceToken(body: {"fcm_token": fcmController.deviceToken});
   }
 }
