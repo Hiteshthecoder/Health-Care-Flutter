@@ -35,14 +35,7 @@ class aabha1Controller extends AppController {
     if (!formKey.currentState!.validate()) {
       return;
     }
-    try {
-      
-
-      
-
-
-
-    } catch (e) {}
+    try {} catch (e) {}
   }
 
   @override
