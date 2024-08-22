@@ -118,6 +118,10 @@ class TtfParser {
   TtfParser(ByteData bytes) : bytes = UnmodifiableByteDataView(bytes) {
     final numTables = bytes.getUint16(4);
 
+    final newBytes = ByteData(12);
+
+    newBytes.asUnmodifiableView();
+
     for (var i = 0; i < numTables; i++) {
       final name = utf8.decode(bytes.buffer.asUint8List(i * 16 + 12, 4));
       final offset = bytes.getUint32(i * 16 + 20);
@@ -126,27 +130,25 @@ class TtfParser {
       tableSize[name] = size;
     }
 
-    assert(tableOffsets.containsKey(head_table),
-        'Unable to find the `head` table. This file is not a supported TTF font');
-    assert(tableOffsets.containsKey(name_table),
-        'Unable to find the `name` table. This file is not a supported TTF font');
-    assert(tableOffsets.containsKey(hmtx_table),
-        'Unable to find the `hmtx` table. This file is not a supported TTF font');
-    assert(tableOffsets.containsKey(hhea_table),
-        'Unable to find the `hhea` table. This file is not a supported TTF font');
-    assert(tableOffsets.containsKey(cmap_table),
-        'Unable to find the `cmap` table. This file is not a supported TTF font');
-    assert(tableOffsets.containsKey(maxp_table),
-        'Unable to find the `maxp` table. This file is not a supported TTF font');
+    assert(
+        tableOffsets.containsKey(head_table), 'Unable to find the `head` table. This file is not a supported TTF font');
+    assert(
+        tableOffsets.containsKey(name_table), 'Unable to find the `name` table. This file is not a supported TTF font');
+    assert(
+        tableOffsets.containsKey(hmtx_table), 'Unable to find the `hmtx` table. This file is not a supported TTF font');
+    assert(
+        tableOffsets.containsKey(hhea_table), 'Unable to find the `hhea` table. This file is not a supported TTF font');
+    assert(
+        tableOffsets.containsKey(cmap_table), 'Unable to find the `cmap` table. This file is not a supported TTF font');
+    assert(
+        tableOffsets.containsKey(maxp_table), 'Unable to find the `maxp` table. This file is not a supported TTF font');
 
     _parseCMap();
-    if (tableOffsets.containsKey(loca_table) &&
-        tableOffsets.containsKey(glyf_table)) {
+    if (tableOffsets.containsKey(loca_table) && tableOffsets.containsKey(glyf_table)) {
       _parseIndexes();
       _parseGlyphs();
     }
-    if (tableOffsets.containsKey(cblc_table) &&
-        tableOffsets.containsKey(cbdt_table)) {
+    if (tableOffsets.containsKey(cblc_table) && tableOffsets.containsKey(cbdt_table)) {
       _parseBitmaps();
     }
   }
@@ -188,13 +190,11 @@ class TtfParser {
 
   int get descent => bytes.getInt16(tableOffsets[hhea_table]! + 6);
 
-  int get numOfLongHorMetrics =>
-      bytes.getUint16(tableOffsets[hhea_table]! + 34);
+  int get numOfLongHorMetrics => bytes.getUint16(tableOffsets[hhea_table]! + 34);
 
   int get numGlyphs => bytes.getUint16(tableOffsets[maxp_table]! + 4);
 
-  String get fontName =>
-      getNameID(TtfParserName.postScriptName) ?? hashCode.toString();
+  String get fontName => getNameID(TtfParserName.postScriptName) ?? hashCode.toString();
 
   bool get unicode => bytes.getUint32(0) == 0x10000;
 
@@ -221,8 +221,7 @@ class TtfParser {
 
       if (platformID == 1 && nameID == fontNameID.index) {
         try {
-          _fontName = utf8.decode(bytes.buffer
-              .asUint8List(basePosition + stringOffset + offset, length));
+          _fontName = utf8.decode(bytes.buffer.asUint8List(basePosition + stringOffset + offset, length));
         } catch (a) {
           print('Error: $platformID $nameID $a');
         }
@@ -230,8 +229,7 @@ class TtfParser {
 
       if (platformID == 3 && nameID == fontNameID.index) {
         try {
-          return _decodeUtf16(bytes.buffer
-              .asUint8List(basePosition + stringOffset + offset, length));
+          return _decodeUtf16(bytes.buffer.asUint8List(basePosition + stringOffset + offset, length));
         } catch (a) {
           print('Error: $platformID $nameID $a');
         }
@@ -307,8 +305,7 @@ class TtfParser {
         if (idRangeOffset == 0) {
           glyphIndex = (idDelta + c) % 65536;
         } else {
-          final glyphIndexAddress =
-              idRangeOffset + 2 * (c - startCode) + idRangeOffsetAddress;
+          final glyphIndexAddress = idRangeOffset + 2 * (c - startCode) + idRangeOffsetAddress;
           glyphIndex = bytes.getUint16(glyphIndexAddress);
         }
         charToGlyphIndexMap[c] = glyphIndex;
@@ -338,8 +335,7 @@ class TtfParser {
       final startGlyphID = bytes.getUint32(basePosition + i * 12 + 22);
 
       for (var j = startCharCode; j <= endCharCode; j++) {
-        assert(!charToGlyphIndexMap.containsKey(j) ||
-            charToGlyphIndexMap[j] == startGlyphID + j - startCharCode);
+        assert(!charToGlyphIndexMap.containsKey(j) || charToGlyphIndexMap[j] == startGlyphID + j - startCharCode);
         charToGlyphIndexMap[j] = startGlyphID + j - startCharCode;
       }
     }
@@ -372,18 +368,14 @@ class TtfParser {
     final hmtxOffset = tableOffsets[hmtx_table]!;
     final unitsPerEm = this.unitsPerEm;
     final numOfLongHorMetrics = this.numOfLongHorMetrics;
-    final defaultadvanceWidth =
-        bytes.getUint16(hmtxOffset + (numOfLongHorMetrics - 1) * 4);
+    final defaultadvanceWidth = bytes.getUint16(hmtxOffset + (numOfLongHorMetrics - 1) * 4);
 
     for (var glyphIndex = 0; glyphIndex < numGlyphs; glyphIndex++) {
-      final advanceWidth = glyphIndex < numOfLongHorMetrics
-          ? bytes.getUint16(hmtxOffset + glyphIndex * 4)
-          : defaultadvanceWidth;
+      final advanceWidth =
+          glyphIndex < numOfLongHorMetrics ? bytes.getUint16(hmtxOffset + glyphIndex * 4) : defaultadvanceWidth;
       final leftBearing = glyphIndex < numOfLongHorMetrics
           ? bytes.getInt16(hmtxOffset + glyphIndex * 4 + 2)
-          : bytes.getInt16(hmtxOffset +
-              numOfLongHorMetrics * 4 +
-              (glyphIndex - numOfLongHorMetrics) * 2);
+          : bytes.getInt16(hmtxOffset + numOfLongHorMetrics * 4 + (glyphIndex - numOfLongHorMetrics) * 2);
       if (glyphSizes[glyphIndex] == 0) {
         glyphInfoMap[glyphIndex] = PdfFontMetrics(
           left: 0,
@@ -432,8 +424,7 @@ class TtfParser {
     }
   }
 
-  TtfGlyphInfo _readSimpleGlyph(
-      int glyph, int start, int offset, int numberOfContours) {
+  TtfGlyphInfo _readSimpleGlyph(int glyph, int start, int offset, int numberOfContours) {
     const X_IS_BYTE = 2;
     const Y_IS_BYTE = 4;
     const REPEAT = 8;
@@ -554,9 +545,7 @@ class TtfParser {
     final numSizes = bytes.getUint32(baseOffset + 4);
     var bitmapSize = baseOffset + 8;
 
-    for (var bitmapSizeIndex = 0;
-        bitmapSizeIndex < numSizes;
-        bitmapSizeIndex++) {
+    for (var bitmapSizeIndex = 0; bitmapSizeIndex < numSizes; bitmapSizeIndex++) {
       // BitmapSize Record
       final indexSubTableArrayOffset = baseOffset + bytes.getUint32(bitmapSize);
       // final indexTablesSize = bytes.getUint32(bitmapSize + 4);
@@ -573,29 +562,23 @@ class TtfParser {
       // final flags = bytes.getUint8(bitmapSize + 16 + 12 * 2 + 7);
 
       var subTableArrayOffset = indexSubTableArrayOffset;
-      for (var indexSubTable = 0;
-          indexSubTable < numberOfIndexSubTables;
-          indexSubTable++) {
+      for (var indexSubTable = 0; indexSubTable < numberOfIndexSubTables; indexSubTable++) {
         // IndexSubTableArray
         final firstGlyphIndex = bytes.getUint16(subTableArrayOffset);
         final lastGlyphIndex = bytes.getUint16(subTableArrayOffset + 2);
-        final additionalOffsetToIndexSubtable =
-            indexSubTableArrayOffset + bytes.getUint32(subTableArrayOffset + 4);
+        final additionalOffsetToIndexSubtable = indexSubTableArrayOffset + bytes.getUint32(subTableArrayOffset + 4);
 
         // IndexSubHeader
         final indexFormat = bytes.getUint16(additionalOffsetToIndexSubtable);
-        final imageFormat =
-            bytes.getUint16(additionalOffsetToIndexSubtable + 2);
-        final imageDataOffset =
-            pngOffset + bytes.getUint32(additionalOffsetToIndexSubtable + 4);
+        final imageFormat = bytes.getUint16(additionalOffsetToIndexSubtable + 2);
+        final imageDataOffset = pngOffset + bytes.getUint32(additionalOffsetToIndexSubtable + 4);
 
         if (indexFormat == 1) {
           // IndexSubTable1
 
           for (var glyph = firstGlyphIndex; glyph <= lastGlyphIndex; glyph++) {
-            final sbitOffset = imageDataOffset +
-                bytes.getUint32(additionalOffsetToIndexSubtable +
-                    (glyph - firstGlyphIndex + 2) * 4);
+            final sbitOffset =
+                imageDataOffset + bytes.getUint32(additionalOffsetToIndexSubtable + (glyph - firstGlyphIndex + 2) * 4);
 
             if (imageFormat == 17) {
               final height = bytes.getUint8(sbitOffset);
@@ -630,6 +613,5 @@ class TtfParser {
     }
   }
 
-  TtfBitmapInfo? getBitmap(int charcode) =>
-      bitmapOffsets[charToGlyphIndexMap[charcode]];
+  TtfBitmapInfo? getBitmap(int charcode) => bitmapOffsets[charToGlyphIndexMap[charcode]];
 }

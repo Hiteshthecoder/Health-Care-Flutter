@@ -27,9 +27,7 @@ class ShareController extends AppController {
   }
 
   void shareQRProgress() async {
-    await screenshotController
-        .capture(delay: const Duration(milliseconds: 10))
-        .then((image) async {
+    await screenshotController.capture(delay: const Duration(milliseconds: 10)).then((image) async {
       if (image != null) {
         final directory = await getApplicationDocumentsDirectory();
         final imagePath = await File('${directory.path}/image.png').create();
